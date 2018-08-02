@@ -1,0 +1,20 @@
+.button{
+    color:#f00;
+    font-size:20px;
+    border-radius: 20px;
+    cursor:pointer;
+}
+
+.button--success{
+    background-color: blue;
+}
+
+.button--danger{
+    background-color: darkmagenta;
+}
+
+.button:active,
+.button:focus{
+    color:#000;
+    outline: none;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { injectGlobal, ThemeProvider } from "styled-components";
+import Count from './Count';
 import theme from './theme';
 
 injectGlobal`
@@ -33,6 +34,7 @@ const Button = styled.button`
   border-radius:20px;
   width:100px;
   padding:5px;
+  margin-bottom:5px;
   background-color : ${props => props.theme.dangerColor};
 `
 
@@ -65,6 +67,18 @@ const StyledLink = styled(Link)`
   font-weight: bold;
 `;
 
+
+// Create an Input component that'll render an <input> tag with some styles
+const Input = styled.input`
+  padding: 0.5em;
+  margin: 0.5em;
+  color: ${props => props.inputColor || "palevioletred"};
+  background: papayawhip;
+  border: none;
+  border-radius: 3px;
+`;
+
+
 class App extends Component {
   render() {
     return (
@@ -79,22 +93,41 @@ class App extends Component {
 
 const Form = () => ( 
   <Card>
-    <Link>unstyled link</Link>
-    <StyledLink>styled link</StyledLink>
-    <SquareButton primary>
-      tomato
-    </SquareButton>
-    <SquareButton 
-    as="a"
-    onClick={() => {alert('do u like tomato?')}}
-    >
-      without tomato
-    </SquareButton>
-    <Button>
-      <Title>
-        타이틀.
-      </Title>
-    </Button>
+
+    <Card>
+      <Button>
+        <Title>
+          타이틀.
+        </Title>
+      </Button>
+    </Card>
+
+    <Card>
+      <Link>unstyled link</Link>
+      <StyledLink>styled link</StyledLink>
+    </Card>
+
+    <Card>
+      <SquareButton primary>
+        tomato
+      </SquareButton>
+      <SquareButton 
+      as="a"
+      onClick={() => {alert('do u like tomato?')}}
+      >
+        without tomato
+      </SquareButton>
+    </Card>
+
+    <Card>
+      <Input defaultValue="@mono" type="text" />
+      <Input defaultValue="@colorful" type="text" inputColor="rebeccapurple" />
+    </Card>
+
+    <Card>
+      <Count />
+    </Card>
+    
   </Card>
 )
 

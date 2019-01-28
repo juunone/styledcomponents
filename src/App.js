@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { injectGlobal, ThemeProvider } from "styled-components";
+import styled, { injectGlobal, ThemeProvider, css, keyframes } from "styled-components";
 import Count from './Count';
 import theme from './theme';
 
@@ -19,6 +19,7 @@ const Title = styled.h1`
 
 const Card = styled.div`
   background-color:white;
+  margin:10px 0;
 `
 
 const Container = styled.div`
@@ -78,6 +79,40 @@ const Input = styled.input`
   border-radius: 3px;
 `;
 
+const InputTextBox = styled.input.attrs({
+  type: 'text',
+  size: props => (props.small ? 5 : undefined),
+})`
+  border-radius: 3px;
+  border: 1px solid palevioletred;
+  display: block;
+  margin: 0 0 1em;
+  padding: ${props => props.padding};
+
+  ::placeholder {
+    color: palevioletred;
+  }
+`
+
+const pulse = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`
+
+const animation = props =>
+  css`
+    ${pulse} ${props.animationLength} linear infinite;
+  `
+
+const PulseButton = styled.button`
+  animation: ${animation};
+`
+
+
 
 class App extends Component {
   render() {
@@ -126,6 +161,18 @@ const Form = () => (
 
     <Card>
       <Count />
+    </Card>
+    
+    <Card>
+      <InputTextBox small placeholder="small"></InputTextBox>
+      <InputTextBox placeholder="medium"></InputTextBox>
+      <InputTextBox placeholder="big" padding="1em"></InputTextBox>
+    </Card>
+
+    <Card>
+      <PulseButton animationLength="1s">
+        &lt; 💅 &gt;
+      </PulseButton>
     </Card>
     
   </Card>

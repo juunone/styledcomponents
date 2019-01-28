@@ -62,7 +62,7 @@ class App extends Component {
 const Form = () => ( 
   <Card>
     <SquareButton primary>
-      tomato
+      tomatodddd
     </SquareButton>
     <SquareButton>
       without tomato

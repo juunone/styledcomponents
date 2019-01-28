@@ -23,7 +23,7 @@ const Card = styled.div`
 const Container = styled.div`
   height: 100vh;
   width: 100%;
-  background-color: pink;
+  background-color: #999;
   ${Card}{
     background-color : black;
   }
@@ -47,6 +47,24 @@ const SquareButton = styled(Button)`
   border-radius: 3px;
 `;
 
+const ALink = styled.a`
+  color:white;
+  font-size:1.3em;
+  font-weight:normal;
+  margin:0 5px;
+`
+
+const Link = ({ className, children }) => (
+  <ALink className={className}>
+    {children}
+  </ALink>
+);
+
+const StyledLink = styled(Link)`
+  color: palevioletred;
+  font-weight: bold;
+`;
+
 class App extends Component {
   render() {
     return (
@@ -61,10 +79,15 @@ class App extends Component {
 
 const Form = () => ( 
   <Card>
+    <Link>unstyled link</Link>
+    <StyledLink>styled link</StyledLink>
     <SquareButton primary>
-      tomatodddd
+      tomato
     </SquareButton>
-    <SquareButton>
+    <SquareButton 
+    as="a"
+    onClick={() => {alert('do u like tomato?')}}
+    >
       without tomato
     </SquareButton>
     <Button>

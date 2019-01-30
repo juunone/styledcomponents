@@ -36,7 +36,7 @@ const Button = styled.button`
   width:100px;
   padding:5px;
   margin-bottom:5px;
-  background-color : ${props => props.theme.dangerColor};
+  background-color : ${props => props.theme.mainColor};
 `
 
 const SquareButton = styled(Button)`
@@ -112,16 +112,26 @@ const PulseButton = styled.button`
   animation: ${animation};
 `
 
+// We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
+Button.defaultProps = {
+  theme: {
+    main: "palevioletred"
+  }
+}
 
 
 class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <Container>
-          <Form />
-        </Container>
-      </ThemeProvider>
+      <div>
+        <Button>without provider</Button>
+        <Button theme={{mainColor:'yellow'}}>theme prop</Button>
+        <ThemeProvider theme={theme}>
+          <Container>
+            <Form />
+          </Container>
+        </ThemeProvider>
+      </div>
     );
   }
 }
@@ -132,7 +142,7 @@ const Form = () => (
     <Card>
       <Button>
         <Title>
-          타이틀.
+          with theme provider
         </Title>
       </Button>
     </Card>

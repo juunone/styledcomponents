@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled, { injectGlobal, ThemeProvider, css, keyframes } from "styled-components";
 import Count from './Count';
 import theme from './theme';
+import Note from './Note';
 
 injectGlobal`
   body{
@@ -129,6 +130,7 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <Container>
             <Form />
+            <Note />
           </Container>
         </ThemeProvider>
       </div>

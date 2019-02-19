@@ -13,6 +13,7 @@ const Paragraph = styled.p`
 `
 const Button = styled.button`
   /* ... */
+  color:#000;
 `
 
 export default class Counter extends React.Component {

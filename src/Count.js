@@ -28,6 +28,7 @@ export default class Counter extends React.Component {
         <Paragraph>{this.state.count}</Paragraph>
         <Button onClick={this.increment}>+</Button>
         <Button onClick={this.decrement}>-</Button>
+        <Button>입력 버튼</Button>
       </StyledCounter>
     )
   }

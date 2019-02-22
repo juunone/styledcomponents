@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider } from "styled-components";
 import theme from './theme'
 
+const ToolTip = styled.div`
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    font-size:1em;
+`
 
 const Nav = styled.div`
     font-size:1em;
@@ -21,6 +27,7 @@ export default class Note extends Component {
         <ThemeProvider theme={theme}>
           <Title>Note title</Title>
           <Nav>Navigation</Nav>
+          <ToolTip>Tooltip</ToolTip>
         </ThemeProvider>
       );
     }
